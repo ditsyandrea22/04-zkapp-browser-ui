@@ -1,36 +1,36 @@
-# 04-zkapp-browser-ui
+#04-zkapp-browser-ui
 
 
 
-## Referensi
+## Reference
 
-[Dokumen resmi](https://docs.minaprotocol.com/zkapps/tutorials/zkapp-ui-with-react)
+[Official document](https://docs.minaprotocol.com/zkapps/tutorials/zkapp-ui-with-react)
 
-[Server Discord ](https://discord.gg/zJkqXjm8)
+[Discord Server ](https://discord.gg/zJkqXjm8)
 
 [Install Wallet](https://www.aurowallet.com/)
 
 [Mina Faucet](https://faucet.minaprotocol.com/)
 
-[Rules Reward](https://minaprotocol.com/blog/zkspark-cohort0?_hsenc=p2ANqtz-8smwqFrO-bZbm3_8-KWLkOJEV5_-yyWKkPzNswcOViTtGGAsJ2Ixg_W6Efo0kaIah9zr_wPl3trIgYeeJwCA40SGbKOQ&_hsmi=234896730)
+[Reward Rules](https://minaprotocol.com/blog/zkspark-cohort0?_hsenc=p2ANqtz-8smwqFrO-bZbm3_8-KWLkOJEV5_-yyWKkPzNswcOViTtGGAsJ2Ixg_W6Efo0kaIah9w73tr_Ixg_W6Efo0kaIah9zr0)
 
-## Persyaratan hardware & software
+## Hardware & software requirements
 
-### Persyaratan software/OS
+### Software/OS requirements
 
-| Komponen | Spesifikasi minimal |
+| Components | Minimum specifications |
 |----------|---------------------|
-|Sistem Operasi|Ubuntu 16.04|
+|Operating Systems|Ubuntu 16.04|
 
-| Komponen | Spesifikasi rekomendasi |
+| Components | Recommended specifications |
 |----------|---------------------|
-|Sistem Operasi|Ubuntu 20.04|
+|Operating Systems|Ubuntu 20.04|
 
-## Bahan Awal Yang Harus di Siapkan
+## Initial Materials That Must Be Prepared
 
-1 . [Install Wallet](https://www.aurowallet.com/) Buat Akun dan Save Pharse Dan Ganti Jaringan ke Berkeley
+1 . [Install Wallet](https://www.aurowallet.com/) Create Account and Save Pharse And Switch Network to Berkeley
 
-2 . [Mina Faucet](https://faucet.minaprotocol.com/) Claim Faucet Masukan Address Mina Yang Kalian Dapatkan di Wallet Yang Telah Kalian Buat
+2 . [Mina Faucet](https://faucet.minaprotocol.com/) Claim Faucet Enter the Mina Address You Get in the Wallet You Have Created
 
 ## 1. Open Port
 
@@ -39,7 +39,7 @@ ufw allow 22 && ufw allow 3000
 ufw enable
 ```
 
-## 2. Instal Node Js 16 & NPM & Git
+## 2. Install Node Js 16 & NPM & Git
 
 ```
 sudo apt update
@@ -54,15 +54,15 @@ curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
 sudo apt install -y nodejs
 ```
 
-Check Versi Node Js
+Check Node Js Version
 ```
 node -v
 ```
-Check Versi NPM 
+Check NPM Version
 ```
 npm -v
 ```
-Check Versi Git
+Check Git Version
 ```
 git --version
 ```
@@ -73,27 +73,27 @@ git --version
 git clone https://github.com/o1-labs/zkapp-cli
 ```
 ```
-npm instal -g zkapp-cli@0.5.3
+npm install -g zkapp-cli@0.5.3
 ```
 
-Check Version Zk Apakah Sudah Terinstall Apa Belum
+Check Zk Version Is It Already Installed Or Not
 ```
 zk --version
 ```
 
-## 4 . Create Project
+##4 . Create Project
 
 ```
 zk project 04-zkapp-browser-ui --ui next
 ```
 
-1 . pilih Yes 3x dan `Enter` Biarkan Hingga Proses Instalisasi Selesai
+1 . select Yes 3x and `Enter` Leave it until the installation process is complete
 
-## 5 . Buat Repository di Github kalian
+##5 . Create a repository on your Github
 
-Beri Nama Samain Kasih Nama `04-zkapp-browser-ui` Setelah Selesai Membuat Repo Anda Akan Mendapatkan Command di Github Diemin, Nanti Akan di Butuhkan
+Give the name Samain Give the name `04-zkapp-browser-ui` After you finish creating the repo you will get a command on Github Diemin, it will be needed later
 
-Balik ke VPS Kalian Jalankan : 
+Back to your VPS Run:
 
 ```
 cd 04-zkapp-browser-ui
@@ -105,108 +105,107 @@ git remote add origin <your-repo-url>
 git push -u origin main
 ```
 
-`<Your-Repo-Url>` = Check di Repository Yang Sudah Kalian Buat
+`<Your-Repo-Url>` = Check the Repository You Have Created
 
-Lalu Nanti Anda Akan di Mintai Username dan Juga Password Github Anda (Jika Terjadi Error) Anda Harus Membuat Token Acces Sebagian Pengganti Password Nya, Caranya : 
+Then later you will be asked for your Github username and password (if an error occurs) you must create an access token to replace the password, here's how:
 
-1. Pergi ke `Settingan Profil` Github Anda
-2. `Depelover Setting`
-3. `Personal Acces Token` > Pilih yang `Token (Classic)`
-4. Lalu `Generate` dan Centang Bagian `Repo`
-5. Token Acces Sudah Jadi, Itu Untuk Pengganti Password Github Anda
+1. Go to your Github `Profile Settings`
+2. `Depover Settings`
+3. `Personal Access Token` > Select the `Token (Classic)`
+4. Then `Generate` and Tick the `Repo` . section
+5. Access token is ready, it's for your Github password replacement
 
-## 6 . Run Contract
+##6 . Run Contract
 
 ```
-cd
+CD
 cd 04-zkapp-browser-ui/contracts/
 npm run build
 ```
 
-##  7. Membuat 2 File Baru 
-
+## 7. Create 2 New Files 
 ```
-cd
+CD
 cd 04-zkapp-browser-ui/ui/pages
 ```
 
-### Buat 2 File Baru Berisi :
+### Create 2 New Files Contains:
 
-##### Folder Pertama : 
+##### First Folder :
 ```
 nano zkappWorker.ts
 ```
-Copy dan Paste Isian Script Ini di Terminal Vps Kalian :
+Copy and Paste this Script Field in your Vps Terminal:
 
 ```
 import {
     Mina,
     isReady,
-    PublicKey,
+    publickey,
     PrivateKey,
-    Field,
+    fields,
     fetchAccount,
 } from 'snarkyjs'
 
 type Transaction = Awaited<ReturnType<typeof Mina.transaction>>;
 
-// ---------------------------------------------------------------------------------------
+// ------------------------------------------------ ---------------------------------------
 
 import type { Add } from '../../contracts/src/Add';
 
-const state = {
+conststate = {
     Add: null as null | typeof Add,
-    zkapp: null as null | Add,
-    transaction: null as null | Transaction,
+    zkapp: null as null | add,
+    transaction: null as null | transactions,
 }
 
-// ---------------------------------------------------------------------------------------
+// ------------------------------------------------ ---------------------------------------
 
 const functions = {
-    loadSnarkyJS: async (args: {}) => {
+    loadSnarkyJS: async(args: { }) => {
         await isReady;
     },
-    setActiveInstanceToBerkeley: async (args: {}) => {
+    setActiveInstanceToBerkeley: async(args: { }) => {
         const Berkeley = Mina.BerkeleyQANet(
             "https://proxy.berkeley.minaexplorer.com/graphql"
         );
         Mina.setActiveInstance(Berkeley);
     },
-    loadContract: async (args: {}) => {
+    loadContract: async(args: {}) => {
         const { Add } = await import('../../contracts/build/src/Add.js');
         state.Add = Add;
     },
-    compileContract: async (args: {}) => {
+    compileContract: async(args: { }) => {
         await state.Add!.compile();
     },
-    fetchAccount: async (args: { publicKey58: string }) => {
+    fetchAccount: async(args: { publicKey58: string }) => {
         const publicKey = PublicKey.fromBase58(args.publicKey58);
         return await fetchAccount({ publicKey });
     },
-    initZkappInstance: async (args: { publicKey58: string }) => {
+    initZkappInstance: async(args: { publicKey58: string }) => {
         const publicKey = PublicKey.fromBase58(args.publicKey58);
         state.zkapp = new state.Add!(publicKey);
     },
-    getNum: async (args: {}) => {
+    getNum: async(args: {}) => {
         const currentNum = await state.zkapp!.num.get();
         return JSON.stringify(currentNum.toJSON());
     },
-    createUpdateTransaction: async (args: {}) => {
+    createUpdateTransaction: async(args: {}) => {
         const transaction = await Mina.transaction(() => {
             state.zkapp!.update();
         }
         );
         state.transaction = transaction;
     },
-    proveUpdateTransaction: async (args: {}) => {
+    proveUpdateTransaction: async(args: { }) => {
         await state.transaction!.prove();
     },
-    getTransactionJSON: async (args: {}) => {
+    getTransactionJSON: async(args: { }) => {
         return state.transaction!.toJSON();
     },
 };
 
-// ---------------------------------------------------------------------------------------
+// ------------------------------------------------ ---------------------------------------
 
 export type WorkerFunctions = keyof typeof functions;
 
@@ -233,49 +232,48 @@ if (process.browser) {
 }
 ```
 
-Simpan `CTRL` `X` `Y` dan `Enter`
+Save `CTRL` `X` `Y` and `Enter`
 
-##### Folder Kedua :
-
+##### Second Folder :
 ```
 nano zkappWorkerClient.ts
 ```
 
-Copy dan Paste Isian Script Ini di Terminal Vps Kalian :
+Copy and Paste this Script Field in your Vps Terminal:
 
 ```
 import {
     fetchAccount,
-    PublicKey,
+    publickey,
     PrivateKey,
-    Field,
+    fields,
 } from 'snarkyjs'
 
 import type { ZkappWorkerRequest, ZkappWorkerReponse, WorkerFunctions } from './zkappWorker';
 
 export default class ZkappWorkerClient {
 
-    // ---------------------------------------------------------------------------------------
+    // ------------------------------------------------ ---------------------------------------
 
     loadSnarkyJS() {
-        return this._call('loadSnarkyJS', {});
+        return this._call('loadSnarkyJS', { });
     }
 
     setActiveInstanceToBerkeley() {
-        return this._call('setActiveInstanceToBerkeley', {});
+        return this._call('setActiveInstanceToBerkeley', { });
     }
 
     loadContract() {
-        return this._call('loadContract', {});
+        return this._call('loadContract', { });
     }
 
     compileContract() {
-        return this._call('compileContract', {});
+        return this._call('compileContract', { });
     }
 
     fetchAccount({ publicKey }: { publicKey: PublicKey }): ReturnType<typeof fetchAccount> {
         const result = this._call('fetchAccount', { publicKey58: publicKey.toBase58() });
-        return (result as ReturnType<typeof fetchAccount>);
+        return(result as ReturnType<typeof fetchAccount>);
     }
 
     initZkappInstance(publicKey: PublicKey) {
@@ -283,24 +281,24 @@ export default class ZkappWorkerClient {
     }
 
     async getNum(): Promise<Field> {
-        const result = await this._call('getNum', {});
+        const result = await this._call('getNum', { });
         return Field.fromJSON(JSON.parse(result as string));
     }
 
     createUpdateTransaction() {
-        return this._call('createUpdateTransaction', {});
+        return this._call('createUpdateTransaction', { });
     }
 
     proveUpdateTransaction() {
-        return this._call('proveUpdateTransaction', {});
+        return this._call('proveUpdateTransaction', { });
     }
 
     async getTransactionJSON() {
-        const result = await this._call('getTransactionJSON', {});
-        return result;
+        const result = await this._call('getTransactionJSON', { });
+        return results;
     }
 
-    // ---------------------------------------------------------------------------------------
+    // ------------------------------------------------ ---------------------------------------
 
     worker: Worker;
 
@@ -337,28 +335,28 @@ export default class ZkappWorkerClient {
 }
 ```
 
-Simpan `CTRL` `X` `Y` dan `Enter`
+Save `CTRL` `X` `Y` and `Enter`
 
-## 8 . Tambahkan Css
+##8 . Add Css
 
 ```
-cd
+CD
 cd 04-zkapp-browser-ui/ui/styles
 ```
 
-Lalu
+Then
 
 ```
 nano globals.css
 ```
 
-Hapus Semu Isi Yang Ada di Sana dan Ganti Dengan Script di Bawah Ini :
+Delete all the contents there and replace it with the script below:
 
 ```
 html,
 body {
   padding: 0;
-  margin: 0;
+  margins: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -374,7 +372,7 @@ a {
 
 @media (prefers-color-scheme: dark) {
   html {
-    color-scheme: dark;
+    color scheme: dark;
   }
   body {
     color: white;
@@ -383,13 +381,12 @@ a {
 }
 ```
 
-Simpan `CTRL` `X` `Y` dan `Enter`
+Save `CTRL` `X` `Y` and `Enter`
 
-## 10 .  Running Web Buka 2 Terminal Baru (1 Perintah Masing Masing 1 Tab)
-
-##### TAB 1
+## 10 . Running Web Open 2 New Terminals (1 Command Each 1 Tab)
+##### TABS 1
 ```
-cd
+CD
 cd 04-zkapp-browser-ui/ui/
 npm run dev
 ```
@@ -397,24 +394,24 @@ npm run dev
 ##### TAB 2
 
 ```
-cd
+CD
 cd 04-zkapp-browser-ui/ui/
 npm run ts-watch
 ```
 
-1. Lalu Buka Browser Chrome http://ip-vps-kalian:3000
-2. Pastikan Snarkjs Terbuka (Walaupun Error Abaikan Saja)
-3. Lalu 2 Tab Tersebut Jika Sudah Jalan, Bisa Kalian Close Langsung Atau Kalian Bisa Menjalankan Tab Baru
+1. Then Open Chrome Browser http://ip-vps-you:3000
+2. Make sure Snarkjs is Open (Although Ignore Errors)
+3. Then the 2 tabs, if they are already running, you can close immediately or you can run a new tab
 
-## 11 . Implementing the react app
+##11 . Implementing the react app
 
 ```
-cd
+CD
 cd 04-zkapp-browser-ui/ui/pages
 nano _app.page.tsx
 ```
 
-Hapus Command Yang Ada di VPS kalian Ganti Dengan Script di Bawah ini :
+Delete the existing command on your VPS, replace it with the script below:
 
 ```
 // import '../styles/globals.css'
@@ -617,48 +614,48 @@ export default function App() {
 }
 ```
 
-## 12 . Deploy UI ke Repository Kalian
+##12 . Deploy UI to Your Repository
 
 ```
 cd 04-zkapp-browser-ui/ui/
 npm run deploy
 ```
 
-Jika ada Output Error Seperti Ini Abaikan Dan Tunggu Hingga Proses Selesai :
+If there is an output error like this, ignore it and wait until the process is complete:
 
 `./pages/_app.page.tsx
-95:6  Warning: React Hook useEffect has a missing dependency: 'state'. Either include it or remove the dependency array. You can also do a functional update 'setState(s => ...)' if you only need 'state' in the 'setState' call.  react-hooks/exhaustive-deps
-115:6  Warning: React Hook useEffect has a missing dependency: 'state'. Either include it or remove the dependency array. You can also do a functional update 'setState(s => ...)' if you only need 'state' in the 'setState' call.  react-hooks/exhaustive-deps`
+95:6 Warning: React Hook useEffect has a missing dependency: 'state'. Either include it or remove the dependency array. You can also do a functional update 'setState(s => ...)' if you only need 'state' in the 'setState' call. react-hooks/exhaustive-deps
+115:6 Warning: React Hook useEffect has a missing dependency: 'state'. Either include it or remove the dependency array. You can also do a functional update 'setState(s => ...)' if you only need 'state' in the 'setState' call. react-hooks/exhaustive-deps`
 
-1. Nanti Ketika Selesai Anda Akan di Suruh Memasukan Username Github Kalian
-2. Masukan Password Github Anda, Ingat di Awal Kita Menggunakan Token Acces. Gunakan Itu Lagi Untuk Password Github (Atau Buat Token Acces Baru Lagi)
+1. Later when finished you will be asked to enter your Github username
+2. Enter your Github password, remember at the beginning we used the access token. Use It Again For Github Password (Or Create New Access Token Again)
 
-## 13 . Untuk Memastikan Apakah Sudah Jalan Dengan Baik
+##13 . To Make Sure It's Running Well
 
-1. Edit ini : `https://<Your-Username>.github.io/04-zkapp-browser-ui/index.html`
-2. Your-Username = Ganti Dengan Nama Github Kalian
-3. Jika Sudah, Paste ke Google Chrome
-4. Jika Berjalan Dengan Baik Maka, Akan Terbuka dan Meminta Aprrove Transaksi dari Wallet Mina Kalian
+1. Edit this : `https://<Your-Username>.github.io/04-zkapp-browser-ui/index.html`
+2. Your-Username = Replace with Your Github Name
+3. If it is, Paste it into Google Chrome
+4. If it goes well, it will open and ask for a transaction approval from your Mina Wallet
 
-## 14. Send Beberapa Transaksi Bebas Kalo Bisa 5 Lebih
+## 14. Send Some Free Transactions If You Can 5 More
 
-1. Buka Link `https://<Your-Username>.github.io/04-zkapp-browser-ui/index.html` Kalian
-2. Connect Wallet Mina nya dan Approve
-3. Refresh Web Tunggu Sampe Muncul Tombol `Send Transaksi` 
-4. Tunggu Muncul Pop Up Approve Transaksi > Isi Fee 1 
-5. Emang Lama Nongol Pop Up Jadi KUDU SABAARR
+1. Go to your `https://<Your-Username>.github.io/04-zkapp-browser-ui/index.html` link
+2. Connect Mina's Wallet and Approve
+3. Refresh the Web Wait Until the `Send Transaction` Tombol Button Appears
+4. Wait for the Approve Transaction Pop Up Appears > Fill in Fee 1
+5. It takes a long time for pop ups to appear, so you have to be patient
 
-## 15 . Submit Form Register
+##15 . Submit Registration Form
 
 1. Link : https://fisz9c4vvzj.typeform.com/zkSparkTutorial
-2. Masukan Username Discord
-3. Masukan Email Kalian
-4. Masukan Link Repo Yang Sudah Kalian Buat di Tahap 13 > Klik Profil Github Kalian > Klik Repository Kalian > Klik 04-zkapp-browser-ui > Masukan Linknya ke Form
-5. Masukan Link Web Github Kalian (Yang Kalian Gunakan Untuk Connect Ke Wallet) 
-6. Kasih Bacotan Indah Mengenai Project Ini
+2. Enter the Discord Username
+3. Enter Your Email
+4. Enter the Repo Link that you created in Stage 13 > Click on your Github Profile > Click on your Repository > Click on 04-zkapp-browser-ui > Enter the link in the form
+5. Enter Your Github Web Link (The One You Use To Connect To Wallet)
+6. Love Beautiful Quotes About This Project
 7. Done
 
-## 16 . Cara Uninstal Semua (Jika Pengen Menghapus)
+##16 . How To Uninstall All (If You Want To Delete)
 
 ```
 rm -rf 04-zkapp-browser-ui
